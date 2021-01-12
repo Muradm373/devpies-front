@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Register extends Component {
+class Settings extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -10,4 +10,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default Settings;

@@ -1,5 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import PatientHome from "./components/PatientHome";
 
 function App() {
   return (
@@ -9,7 +10,11 @@ function App() {
           exact
           path="/"
           render={() => {
-            <div className="App"></div>;
+            return (
+              <div className="App">
+                <PatientHome></PatientHome>
+              </div>
+            );
           }}
         />
         <Route
