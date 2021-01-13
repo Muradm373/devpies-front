@@ -1,6 +1,32 @@
 const initState = {
   usertype: "user",
   menu: "My Appointments",
+  userDetails: {
+    name: "Murad",
+    surname: "Mammadov",
+    birthDay: "03",
+    birthMonth: "12",
+    birthYear: "1996",
+    gender: "Male",
+    address: "Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09",
+    city: "Baku",
+    country: "Azerbaijan",
+    postalCode: "AZ1025",
+    county: "Khatai",
+    knownAllergiesList: [],
+    phoneNumber: "(+994) 556181203",
+    email: "muradm373@gmail.com",
+    idNumber: "C00820373",
+  },
+  appointmentsHistory: [],
+  activeAppointments: [
+    {
+      dateOfIssue: "01/11/2021",
+      symptoms: ["headache", "apathy", "irritability"],
+      hospitalName: "Leyla Medical Center",
+      status: "Diagnosed",
+    },
+  ],
 };
 
 const rootReducer = (state = initState, action) => {

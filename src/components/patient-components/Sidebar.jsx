@@ -15,7 +15,6 @@ class Sidebar extends Component {
   }
 
   activeRoute(routeName) {
-    console.log(this.props);
     return this.props.menu === routeName ? "active" : "";
   }
   componentDidMount() {

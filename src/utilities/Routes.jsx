@@ -5,13 +5,6 @@ import Hospitals from "../components/patient-components/Hospitals";
 import Settings from "../components/patient-components/Settings";
 
 export let routes = {
-  "My data": {
-    path: "/#",
-    icon: "fas fa-user fa-2x",
-    component: <Settings></Settings>,
-    layout: "/",
-    label: "My Data",
-  },
   "My Appointments": {
     path: "/#",
     icon: "fas fa-calendar-check fa-2x",
@@ -32,6 +25,13 @@ export let routes = {
     component: <AIHelp></AIHelp>,
     layout: "/",
     label: "AI Assistant",
+  },
+  "My data": {
+    path: "/#",
+    icon: "fas fa-user fa-2x",
+    component: <Settings></Settings>,
+    layout: "/",
+    label: "My Data",
   },
 
   About: {

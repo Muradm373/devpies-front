@@ -13,11 +13,18 @@ class AIHelp extends Component {
     };
 
     this.onSymptomSelected = this.onSymptomSelected.bind(this);
+    this.removeElementFromSymptoms = this.removeElementFromSymptoms.bind(this);
+  }
+
+  removeElementFromSymptoms(symptom) {
+    this.setState({
+      symptoms: [...this.state.symptoms.filter((e) => e !== symptom)],
+    });
   }
 
   onSymptomSelected(symptom) {
-    console.log(symptom);
-    this.setState({ symptoms: [...this.state.symptoms, symptom.label] });
+    if (!this.state.symptoms.includes(symptom.label))
+      this.setState({ symptoms: [...this.state.symptoms, symptom.label] });
   }
   render() {
     return (
@@ -44,7 +51,11 @@ class AIHelp extends Component {
                 <li>
                   {this.state.symptoms.map((symptom) => {
                     return (
-                      <a href="/#" className="mx-1 description">
+                      <a
+                        href="/#"
+                        className="mx-1 description"
+                        onClick={() => this.removeElementFromSymptoms(symptom)}
+                      >
                         {symptom}
                       </a>
                     );
