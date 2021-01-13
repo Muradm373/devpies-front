@@ -103,7 +103,7 @@ class NavBar extends React.Component {
     return (
       // add or remove classes depending if we are on full-screen-maps page or not
       <Navbar
-        color={"transparent"}
+        color={"white"}
         expand="lg"
         className={"navbar-absolute fixed-top"}
       >

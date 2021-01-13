@@ -35,17 +35,13 @@ class Sidebar extends Component {
     return (
       <div className="sidebar" data-color={this.props.backgroundColor}>
         <div className="logo">
-          <a
-            href="https://www.creative-tim.com?ref=nudr-sidebar"
-            className="simple-text logo-mini"
-            target="_blank"
-          >
+          <a href="/#" className="simple-text logo-mini" target="_blank">
             <div className="logo-img">
               <img src={logo} alt="react-logo" />
             </div>
           </a>
           <a
-            href="https://www.creative-tim.com?ref=nudr-sidebar"
+            href="/#"
             className="simple-text logo-normal text-left"
             target="_blank"
           >

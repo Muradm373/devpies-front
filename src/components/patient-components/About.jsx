@@ -6,7 +6,11 @@ class About extends Component {
     this.state = {};
   }
   render() {
-    return <div>About</div>;
+    return (
+      <div>
+        <p>About</p>
+      </div>
+    );
   }
 }
 

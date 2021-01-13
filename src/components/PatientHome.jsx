@@ -20,9 +20,11 @@ class PatientHome extends Component {
         <div id="body">
           <main>
             <NavBar></NavBar>
-            <div>
-              <div className="panel-header panel-header-sm"></div>
-              {routes[this.props.menu].component}
+            <div className="main-panel ps ps--active-y">
+              <div className="content ">
+                <div className="pan-header"></div>
+                {routes[this.props.menu].component}
+              </div>
             </div>
           </main>
         </div>
