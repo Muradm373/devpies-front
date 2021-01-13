@@ -6,7 +6,7 @@ class Settings extends Component {
     this.state = {};
   }
   render() {
-    return <div></div>;
+    return <div>Settings</div>;
   }
 }
 

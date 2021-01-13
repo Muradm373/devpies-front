@@ -6,7 +6,7 @@ class AIHelp extends Component {
     this.state = {};
   }
   render() {
-    return <div></div>;
+    return <div>AI Help</div>;
   }
 }
 
