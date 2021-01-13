@@ -26,12 +26,12 @@ export let routes = {
     layout: "/",
     label: "Hospitals",
   },
-  "AI Help": {
+  "AI Assistant": {
     path: "/#",
     icon: "fas fa-robot fa-2x",
     component: <AIHelp></AIHelp>,
     layout: "/",
-    label: "AI Help",
+    label: "AI Assistant",
   },
 
   About: {
