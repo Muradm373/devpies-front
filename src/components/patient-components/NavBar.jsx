@@ -95,6 +95,7 @@ class NavBar extends React.Component {
       window.innerWidth < 993 &&
       document.documentElement.className.indexOf("nav-open") !== -1
     ) {
+      this.setState({ color: "white" });
       document.documentElement.classList.toggle("nav-open");
       this.sidebarToggle.current.classList.toggle("toggled");
     }
@@ -103,7 +104,7 @@ class NavBar extends React.Component {
     return (
       // add or remove classes depending if we are on full-screen-maps page or not
       <Navbar
-        color={"white"}
+        color={this.state.color}
         expand="lg"
         className={"navbar-absolute fixed-top"}
       >

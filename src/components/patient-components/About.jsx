@@ -19,7 +19,7 @@ class About extends Component {
             <div class="card">
               <img
                 class="card-img-top"
-                src="https://images.unsplash.com/photo-1535025639604-9a804c092faa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6cb0ceb620f241feb2f859e273634393&auto=format&fit=crop&w=500&q=80"
+                src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80"
               />
               <div class="card-body">
                 <h5 class="card-title">Simple</h5>
@@ -34,7 +34,7 @@ class About extends Component {
             <div class="card">
               <img
                 class="card-img-top"
-                src="https://images.unsplash.com/photo-1535025639604-9a804c092faa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6cb0ceb620f241feb2f859e273634393&auto=format&fit=crop&w=500&q=80"
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"
               />
               <div class="card-body">
                 <h5 class="card-title">Dataset</h5>
@@ -50,7 +50,7 @@ class About extends Component {
             <div class="card">
               <img
                 class="card-img-top"
-                src="https://images.unsplash.com/photo-1535025639604-9a804c092faa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6cb0ceb620f241feb2f859e273634393&auto=format&fit=crop&w=500&q=80"
+                src="https://images.unsplash.com/photo-1591604021695-0c69b7c05981?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"
               />
               <div class="card-body">
                 <h5 class="card-title">Approval</h5>
@@ -68,7 +68,7 @@ class About extends Component {
             <div class="card">
               <img
                 class="card-img-top"
-                src="https://images.unsplash.com/photo-1535025639604-9a804c092faa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6cb0ceb620f241feb2f859e273634393&auto=format&fit=crop&w=500&q=80"
+                src="https://images.unsplash.com/photo-1579154204601-01588f351e67?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
               />
               <div class="card-body">
                 <h5 class="card-title">Powerful</h5>
@@ -83,7 +83,7 @@ class About extends Component {
             <div class="card">
               <img
                 class="card-img-top"
-                src="https://images.unsplash.com/photo-1535025639604-9a804c092faa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6cb0ceb620f241feb2f859e273634393&auto=format&fit=crop&w=500&q=80"
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1504&q=80"
               />
               <div class="card-body">
                 <h5 class="card-title">Open</h5>
@@ -98,7 +98,7 @@ class About extends Component {
             <div class="card">
               <img
                 class="card-img-top"
-                src="https://images.unsplash.com/photo-1535025639604-9a804c092faa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6cb0ceb620f241feb2f859e273634393&auto=format&fit=crop&w=500&q=80"
+                src="https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80"
               />
               <div class="card-body">
                 <h5 class="card-title title">News</h5>
