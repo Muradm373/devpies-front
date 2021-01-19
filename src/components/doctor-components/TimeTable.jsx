@@ -1,0 +1,103 @@
+import React, { Component } from "react";
+
+class TimeTable extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      timeSlots: this.setTimeSlots(),
+      timeTable: this.renderTimes(10),
+    };
+  }
+
+  selectedTimes = [
+    { initTime: 17, endTime: 18, colorTag: undefined, description: "" },
+  ];
+
+  setTimeSlots() {
+    let timeSlots = [];
+
+    for (let i = 0; i < 10; i++) {
+      timeSlots.push(
+        <div>
+          {8 + i}:00 - {9 + i}:00
+        </div>
+      );
+    }
+
+    return timeSlots;
+  }
+
+  colorSlot(timeSlot, week) {
+    let timeSlots = this.state.timeSlots;
+
+    // timeSlot[i - 1 + week * 7];
+  }
+
+  renderTimes(timeIntervals) {
+    let table = [];
+
+    for (let timeSlot = 1; timeSlot <= timeIntervals; timeSlot++)
+      for (let weekDays = 1; weekDays <= 7; weekDays++) {
+        if (weekDays === 6 || weekDays === 7)
+          table.push(<div className="weekend"></div>);
+        else if (weekDays % 2 === 0 && timeSlot === 2)
+          table.push(<div className="accent-green-gradient"></div>);
+        else
+          table.push(
+            <div>
+              {timeSlot} {weekDays}
+            </div>
+          );
+      }
+
+    return table;
+  }
+
+  getDate(date, weekDaySelected) {
+    let weekDay = parseInt(date.getDay());
+    let finalDate = date;
+    finalDate.setDate(date.getDate() - weekDay + weekDaySelected);
+
+    return finalDate.toLocaleDateString();
+  }
+  render() {
+    return (
+      <div class="timetable">
+        <div class="week-names">
+          <div>
+            monday <br />
+            {this.getDate(this.props.date, 1)}
+          </div>
+          <div>
+            tuesday <br />
+            {this.getDate(this.props.date, 2)}
+          </div>
+          <div>
+            wednesday <br />
+            {this.getDate(this.props.date, 3)}
+          </div>
+          <div>
+            thursday <br />
+            {this.getDate(this.props.date, 4)}
+          </div>
+          <div>
+            friday <br />
+            {this.getDate(this.props.date, 5)}
+          </div>
+          <div class="weekend">
+            saturday <br />
+            {this.getDate(this.props.date, 6)}
+          </div>
+          <div class="weekend">
+            sunday <br />
+            {this.getDate(this.props.date, 7)}
+          </div>
+        </div>
+        <div class="time-interval">{this.state.timeSlots}</div>
+        <div class="content-timetable">{this.state.timeTable}</div>
+      </div>
+    );
+  }
+}
+
+export default TimeTable;

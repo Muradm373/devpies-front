@@ -24,7 +24,23 @@ const initState = {
       dateOfIssue: "01/11/2021",
       symptoms: ["headache", "apathy", "irritability"],
       hospitalName: "Leyla Medical Center",
-      status: "Diagnosed",
+      status: "Pending",
+    },
+  ],
+
+  myPatients: [],
+  feedbacks: [
+    {
+      user: { name: "Murad", surname: "Mammadov" },
+      rating: "",
+      description: "Great job!",
+      date: "03.12.2020",
+    },
+    {
+      user: { name: "Anar", surname: "Aliyev" },
+      rating: "",
+      description: "Thanks for a good job!",
+      date: "03.12.2020",
     },
   ],
 };

@@ -13,8 +13,6 @@ import {
   Container,
 } from "reactstrap";
 
-import { routes } from "../../utilities/Routes";
-
 class NavBar extends React.Component {
   state = {
     isOpen: false,
