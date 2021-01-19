@@ -28,9 +28,18 @@ class TimeTable extends Component {
   }
 
   colorSlot(timeSlot, week) {
-    let timeSlots = this.state.timeSlots;
+    let timeTable = this.state.timeTable;
 
-    // timeSlot[i - 1 + week * 7];
+    timeTable[(timeSlot - 1) * 7 + week - 1] = (
+      <div
+        className="accent-green-gradient"
+        onClick={() => {
+          this.colorSlot(timeSlot, week);
+        }}
+      ></div>
+    );
+
+    this.setState({ timeTable: timeTable });
   }
 
   renderTimes(timeIntervals) {
@@ -39,14 +48,30 @@ class TimeTable extends Component {
     for (let timeSlot = 1; timeSlot <= timeIntervals; timeSlot++)
       for (let weekDays = 1; weekDays <= 7; weekDays++) {
         if (weekDays === 6 || weekDays === 7)
-          table.push(<div className="weekend"></div>);
+          table.push(
+            <div
+              className="weekend"
+              onClick={() => {
+                this.colorSlot(timeSlot, weekDays);
+              }}
+            ></div>
+          );
         else if (weekDays % 2 === 0 && timeSlot === 2)
-          table.push(<div className="accent-green-gradient"></div>);
+          table.push(
+            <div
+              className="accent-green-gradient"
+              onClick={() => {
+                this.colorSlot(timeSlot, weekDays);
+              }}
+            ></div>
+          );
         else
           table.push(
-            <div>
-              {timeSlot} {weekDays}
-            </div>
+            <div
+              onClick={() => {
+                this.colorSlot(timeSlot, weekDays);
+              }}
+            ></div>
           );
       }
 
