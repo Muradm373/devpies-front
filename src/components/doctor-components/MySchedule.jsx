@@ -35,7 +35,7 @@ class MySchedule extends Component {
               onChange={(val) => this.onDateChange(val)}
             />
           </div>
-          <TimeTable date={this.state.value}></TimeTable>
+          <TimeTable dateTime={this.state.value}></TimeTable>
         </div>
       </div>
     );

@@ -2,8 +2,11 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PatientHome from "./components/PatientHome";
 import DoctorHome from "./components/DoctorHome";
+import Login from "./components/Login";
+import { connect } from "react-redux";
 
-function App() {
+function App(props) {
+  console.log(props);
   return (
     <Router>
       <Switch>
@@ -11,21 +14,20 @@ function App() {
           exact
           path="/"
           render={() => {
-            return (
-              <div className="App">
-                <DoctorHome></DoctorHome>
-              </div>
-            );
-          }}
-        />
-        <Route
-          exact
-          path="/patient"
-          render={() => {
-            return (
-              <div className="App">
-                <PatientHome></PatientHome>
-              </div>
+            return props.authUser !== undefined ? (
+              props.userType === "ADMIN" ? (
+                <DoctorHome />
+              ) : props.userType === "USER" ? (
+                <PatientHome />
+              ) : props.userType === "DOCTOR" ? (
+                <DoctorHome />
+              ) : props.userType === "REPRESENTATIVE" ? (
+                <PatientHome />
+              ) : (
+                <Login />
+              )
+            ) : (
+              <Login />
             );
           }}
         />
@@ -41,4 +43,18 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // signIn: (authUser) => {
+    //   dispatch(signIn(authUser));
+    // },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

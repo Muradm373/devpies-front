@@ -1,5 +1,7 @@
 const initState = {
-  usertype: "user",
+  user: undefined,
+  authUser: undefined,
+  userType: undefined,
   menu: "My Appointments",
   userDetails: {
     name: "Murad",
@@ -52,6 +54,19 @@ const rootReducer = (state = initState, action) => {
 
   if (action.type === "SET_MENU") {
     return { ...state, menu: action.menu };
+  }
+  if (action.type === "USER_SIGN_IN") {
+    return {
+      ...state,
+      authUser: action.authUser,
+      userType: action.user.authorities[0].authority,
+    };
+  }
+  if (action.type === "USER_SIGN_OUT") {
+    return {
+      ...state,
+      authUser: undefined,
+    };
   }
 
   return { ...state };
