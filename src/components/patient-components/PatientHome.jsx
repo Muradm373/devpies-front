@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Sidebar from "./patient-components/Sidebar";
-import NavBar from "./patient-components/NavBar";
-import { routes } from "../utilities/Routes";
+import Sidebar from "./Sidebar";
+import NavBar from "./NavBar";
+import { routes } from "../../utilities/Routes";
 
 class PatientHome extends Component {
   constructor(props) {

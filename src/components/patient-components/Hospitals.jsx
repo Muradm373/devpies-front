@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import GoogleMap from "../common/GoogleMap";
 
 class Hospitals extends Component {
   constructor(props) {
@@ -7,15 +9,29 @@ class Hospitals extends Component {
   }
   render() {
     return (
-      <div className="card p-5">
-        <div className=" text-center">
-          <div className="typography-line text-center pl-0 mb-0">
-            <h5>Hospitals</h5>
-          </div>
+      <div>
+        <div class="header text-center mt-3">
+          <h2 class="title">Hospitals</h2>
+          <p class="category mt-2 description text-center">
+            Here you can find the list of hospitals.
+          </p>
+        </div>
+        <div>
+          <GoogleMap hospitals={this.props.hospitals}></GoogleMap>
         </div>
       </div>
     );
   }
 }
 
-export default Hospitals;
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Hospitals);

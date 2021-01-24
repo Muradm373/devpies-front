@@ -30,6 +30,35 @@ const initState = {
     },
   ],
 
+  hospitals: [
+    {
+      name: "Leyla Medical Clinic",
+      lng: 59.938043,
+      lat: 30.337157,
+      rating: 5,
+      address: "101 Hasan Aliyev str",
+      phoneNumber: "(012)000 00 00",
+      timetable: "Opens 8:30AM",
+    },
+    {
+      name: "Baku Clinic",
+      lng: 59.955413,
+      lat: 30.337157,
+      rating: 5,
+      address: "35 Matbuat avenue",
+      phoneNumber: "(012)000 00 00",
+      timetable: "Opens 8:30AM",
+    },
+    {
+      name: "Hayat Clinic",
+      lng: 59.955413,
+      lat: 30.337157,
+      rating: 5,
+      address: "Qara Qarayev Pr., 66 / 1",
+      phoneNumber: "(012) 000 00 00",
+      timetable: "Opens 8:30AM",
+    },
+  ],
   myPatients: [],
   feedbacks: [
     {

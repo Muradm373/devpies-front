@@ -35,7 +35,6 @@ class Login extends Component {
           return userDetails;
         })
         .then((data) => {
-          console.log(data.data);
           this.props.signIn(data.data);
         })
         .catch((error) => {

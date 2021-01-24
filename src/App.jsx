@@ -1,12 +1,13 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import PatientHome from "./components/PatientHome";
+import PatientHome from "./components/patient-components/PatientHome";
 import DoctorHome from "./components/DoctorHome";
 import Login from "./components/Login";
 import { connect } from "react-redux";
+import RepresentativeHome from "./components/representative-components/RepresentativeHome";
+import AdminHome from "./components/admin-components/AdminHome";
 
 function App(props) {
-  console.log(props);
   return (
     <Router>
       <Switch>
@@ -22,7 +23,7 @@ function App(props) {
               ) : props.userType === "DOCTOR" ? (
                 <DoctorHome />
               ) : props.userType === "REPRESENTATIVE" ? (
-                <PatientHome />
+                <RepresentativeHome />
               ) : (
                 <Login />
               )
