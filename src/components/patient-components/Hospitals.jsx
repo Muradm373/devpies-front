@@ -10,9 +10,9 @@ class Hospitals extends Component {
   render() {
     return (
       <div>
-        <div class="header text-center mt-3">
+        <div class="header text-center">
           <h2 class="title">Hospitals</h2>
-          <p class="category mt-2 description text-center">
+          <p class="category description text-center">
             Here you can find the list of hospitals.
           </p>
         </div>
