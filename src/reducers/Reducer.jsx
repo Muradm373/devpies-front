@@ -3,6 +3,18 @@ const initState = {
   authUser: undefined,
   userType: undefined,
   menu: "My Appointments",
+  files: [
+    {
+      filename: "Test Results",
+      dateModified: "03/12/2020 00:57",
+      fileExtension: "pdf",
+    },
+    {
+      filename: "MRI Scan",
+      dateModified: "03/12/2020 00:57",
+      fileExtension: "image",
+    },
+  ],
   userDetails: {
     name: "Murad",
     surname: "Mammadov",

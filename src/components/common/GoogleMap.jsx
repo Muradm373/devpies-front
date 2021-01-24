@@ -4,6 +4,8 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -74,6 +76,11 @@ class GoogleMap extends Component {
                           </React.Fragment>
                         }
                       />
+                      <ListItemSecondaryAction>
+                        <IconButton edge="end" aria-label="info" size="small">
+                          <i className="fas fa-ellipsis-v fa-1x color-gray" />
+                        </IconButton>
+                      </ListItemSecondaryAction>
                     </ListItem>
                   );
                 })}

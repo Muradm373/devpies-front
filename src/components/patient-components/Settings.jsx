@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { CardBody, FormGroup, Form, Input, Row, Col } from "reactstrap";
+import FileExplorer from "./FileExplorer";
 
 class Settings extends Component {
   constructor(props) {
@@ -135,6 +136,10 @@ class Settings extends Component {
                 </CardBody>
               </Col>
             </Row>
+            <div className="typography-line text-center pl-0 mt-3">
+              <h5>My Files</h5>
+            </div>
+            <FileExplorer files={this.props.files} />
           </div>
         </div>
       </div>
