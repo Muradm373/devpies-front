@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material/list": "^9.0.0",
+    "@react-three/drei": "^2.2.21",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.0",
@@ -12,6 +13,7 @@
     "bootstrap": "^4.5.3",
     "chart.js": "^2.9.4",
     "create-react-class": "^15.7.0",
+    "drei": "^2.2.21",
     "google-map-react": "^2.1.9",
     "mdbreact": "^5.0.1",
     "perfect-scrollbar": "^1.5.0",
@@ -25,8 +27,10 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-select": "^3.1.1",
+    "react-three-fiber": "^5.3.17",
     "reactstrap": "^8.8.1",
     "redux": "^4.0.5",
+    "three": "^0.124.0",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

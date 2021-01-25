@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import { connect } from "react-redux";
 import RepresentativeHome from "./components/representative-components/RepresentativeHome";
 import AdminHome from "./components/admin-components/AdminHome";
+import Register from "./components/Register";
 
 function App(props) {
   return (
@@ -36,7 +37,7 @@ function App(props) {
           exact
           path="/register"
           render={() => {
-            return <div> Register </div>;
+            return <Register />;
           }}
         />
       </Switch>

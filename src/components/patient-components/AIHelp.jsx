@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Select from "react-select";
 import { deseases } from "../../dictionary/deseases";
+import BodyScene from "../common/BodyScene";
 
 class AIHelp extends Component {
   constructor(props) {
@@ -40,6 +41,7 @@ class AIHelp extends Component {
         </div>
 
         <div className="card-body w-100 mx-auto" style={{ zIndex: 9000 }}>
+          <BodyScene />
           <p className="mt-2 description text-left">Select your symptoms:</p>
           <Select
             options={this.state.options}

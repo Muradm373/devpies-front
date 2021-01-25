@@ -36,3 +36,26 @@ export const getCurrentUser = (authUser) => {
     "Access-Control-Allow-Origin": "*",
   });
 };
+
+export const doCreateUserWithEmailAndPassword = (
+  name,
+  surname,
+  password,
+  email,
+  contact,
+  address
+) => {
+  let url = `${devpiesAPI}/auth/register?username=${email}&password=${password}`;
+  return axios.post(
+    url,
+    {
+      // name,
+      // surname,
+      // password,
+      // email,
+      // contact,
+      // address,
+    },
+    { headers: headers }
+  );
+};
