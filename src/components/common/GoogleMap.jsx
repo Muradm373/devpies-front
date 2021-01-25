@@ -23,7 +23,7 @@ class GoogleMap extends Component {
   }
   render() {
     return (
-      <div style={{ height: "50vh", width: "50%" }}>
+      <div style={{ height: "100vh", width: "100%" }}>
         <div
           className="card w-25 shadow-sm "
           style={{ position: "absolute", zIndex: "1000", height: "100vh" }}
