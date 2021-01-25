@@ -4,7 +4,8 @@ export const headers = {
   "Content-Type": "application/json",
 };
 
-const devpiesAPI = "http://localhost:9090";
+const devpiesAPI = "https://devpies-back.herokuapp.com/";
+// const devpiesAPI = "http://localhost:9090";
 
 export const setMenu = (menu) => {
   return { type: "SET_MENU", menu: menu };
