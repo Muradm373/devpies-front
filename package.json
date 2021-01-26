@@ -30,6 +30,7 @@
     "react-three-fiber": "^5.3.17",
     "reactstrap": "^8.8.1",
     "redux": "^4.0.5",
+    "serve": "^11.3.2",
     "three": "^0.124.0",
     "valtio": "^0.6.3",
     "web-vitals": "^0.2.4"
