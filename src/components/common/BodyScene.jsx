@@ -1,9 +1,21 @@
-import React, { Component, useRef, Suspense } from "react";
+import React, {useState, useCallback} from "react";
 import { Canvas } from "react-three-fiber";
-import { useGLTF, OrbitControls, ContactShadows, Environment } from "drei";
+import { useFrame } from "react-three-fiber";
+import { OrbitControls, ContactShadows } from "drei";
+import Fab from "@material-ui/core/Fab";
+import { useDispatch, useSelector } from "react-redux";
 import Body from "./Body";
+import OptionSelector from "./OptionSelector";
 
 export default function BodyScene(props) {
+  const reducerProps = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const [questionary, set] = useState(false);
+
+  const handleCloseModal = () => {
+    set(!questionary)
+  }
+
   return (
     <div style={{ height: "60vh" }}>
       <Canvas concurrent pixelRatio={[1, 2]}>
@@ -20,16 +32,43 @@ export default function BodyScene(props) {
           angle={0.1}
           penumbra={1}
         />
-        <Suspense fallback={null}>
-          <Body />
-          {/* <Environment files="hdr.hdr" /> */}
-        </Suspense>
+        <Body dispatch={dispatch} />
+        {/* <Environment files="hdr.hdr" /> */}
+        <ContactShadows
+          rotation-x={Math.PI / 2}
+          position={[0, -1.5, 0]}
+          opacity={0.25}
+          width={10}
+          height={10}
+          blur={2}
+          far={1}
+        />
+
         <OrbitControls
           minPolarAngle={Math.PI / 2}
           maxPolarAngle={Math.PI / 2}
           enablePan={false}
         />
       </Canvas>
+      <div
+        class="float-right mr-2"
+        style={{
+          marginTop: "-100px",
+          display:
+            reducerProps.selectedBodyParts.length === 0 ? "none" : "block",
+        }}
+
+        onClick={()=> set(!questionary)}
+      >
+        <Fab color="secondary" aria-label="edit">
+          <i className="fas fa-check fa-1x" />
+        </Fab>
+        
+      </div>
+
+      <div className="mx-auto" style={{marginTop: "-50%", marginLeft:"auto", marginRight:"auto", display: questionary? "block": "none"}}>
+        <OptionSelector selectedBodyParts={reducerProps.selectedBodyParts} closeModal={handleCloseModal} />
+      </div>
     </div>
   );
 }

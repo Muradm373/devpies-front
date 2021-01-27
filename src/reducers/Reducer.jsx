@@ -86,6 +86,7 @@ const initState = {
       date: "03.12.2020",
     },
   ],
+  selectedBodyParts: []
 };
 
 const rootReducer = (state = initState, action) => {
@@ -107,6 +108,13 @@ const rootReducer = (state = initState, action) => {
     return {
       ...state,
       authUser: undefined,
+    };
+  }
+
+  if (action.type === "SET_BODY_PARTS") {
+    return {
+      ...state,
+      selectedBodyParts: action.bodyParts,
     };
   }
 

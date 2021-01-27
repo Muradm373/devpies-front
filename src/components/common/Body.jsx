@@ -6,9 +6,11 @@ import React, { useRef, useState } from "react";
 import { useFrame } from "react-three-fiber";
 import { useGLTF } from "@react-three/drei/useGLTF";
 import { proxy, useProxy } from "valtio";
+import { setBodyParts } from "../../actions/Actions";
 
 const state = proxy({
   current: null,
+  selectedParts: [],
   items: {
     Head: "#ffffff",
     Jaw: "#ffffff", //1
@@ -59,7 +61,7 @@ const state = proxy({
   },
 });
 
-export default function Model(props) {
+export default function Body(props) {
   const group = useRef();
   const snap = useProxy(state);
   const [hovered, set] = useState(null);
@@ -70,6 +72,8 @@ export default function Model(props) {
     const t = state.clock.getElapsedTime();
     group.current.position.y = (1 + Math.sin(t / 1.5)) / 10;
   });
+
+  
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -86,7 +90,14 @@ export default function Model(props) {
         onPointerDown={(e) => {
           e.stopPropagation();
           state.current = e.object.name;
-          state.items[state.current] = "#FF0000";
+          state.items[state.current] = state.items[state.current] === "#FF0000" ? "#FFFFFF" : "#FF0000" ;
+
+          if(state.selectedParts.includes(state.current))
+            state.selectedParts = state.selectedParts.filter(e=> e !== state.current)
+          else
+            state.selectedParts.push(state.current)
+
+            props.dispatch(setBodyParts(state.selectedParts));
         }}
         onPointerMissed={(e) => (state.current = null)}
       >
@@ -449,3 +460,9 @@ export default function Model(props) {
 }
 
 useGLTF.preload("/BodyCompressed.glb");
+
+
+
+
+
+

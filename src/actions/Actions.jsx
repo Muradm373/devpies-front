@@ -60,3 +60,10 @@ export const doCreateUserWithEmailAndPassword = (
     { headers: headers }
   );
 };
+
+export const setBodyParts = (bodyParts) => {
+  return {
+    type: "SET_BODY_PARTS",
+    bodyParts: bodyParts,
+  };
+};
