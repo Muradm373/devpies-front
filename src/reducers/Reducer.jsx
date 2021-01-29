@@ -76,7 +76,18 @@ const initState = {
       timetable: "Opens 8:30AM",
     },
   ],
-  myPatients: [],
+  myPatients: [  {
+    user: { name: "Murad", surname: "Mammadov" },
+    symptoms: ["headache", "apathy", "irritability"],
+    date: "03.12.2020",
+    thumbnail: "https://www.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg"
+  },
+  {
+    user: { name: "Anar", surname: "Aliyev" },
+    symptoms: ["headache", "apathy", "irritability"],
+    date: "03.12.2020",
+    thumbnail:"https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/profile_user.jpg"
+  }],
   feedbacks: [
     {
       user: { name: "Murad", surname: "Mammadov" },
