@@ -56,17 +56,13 @@ export default function BodyScene(props) {
             reducerProps.selectedBodyParts.length === 0 ? "none" : "block",
         }}
 
-        onClick={()=> set(!questionary)}
+        onClick={()=> props.toggleQuestionary(true)}
       >
         <Fab variant="extended" color="secondary" aria-label="edit">
           <i className="fas fa-check fa-1x mr-3" />
           Fill Questionnaire
         </Fab>
         
-      </div>
-
-      <div className="mx-auto" style={{marginTop: "-50%", marginLeft:"auto", marginRight:"auto", display: questionary? "block": "none"}}>
-        <OptionSelector selectedBodyParts={reducerProps.selectedBodyParts} closeModal={handleCloseModal} />
       </div>
     </div>
   );

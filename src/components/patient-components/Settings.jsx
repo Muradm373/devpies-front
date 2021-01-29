@@ -209,7 +209,8 @@ class Settings extends Component {
             <div className="typography-line text-center pl-0 mt-3">
               <h5>My Files</h5>
             </div>
-            <FileExplorer files={this.props.files} />
+            <FileExplorer files={this.props.files} hospitalName="Leyla Medical Clinic" />
+            <FileExplorer files={this.props.files} hospitalName="Istanbul Clinic"/>
             </Card>
           </div>
         </div>

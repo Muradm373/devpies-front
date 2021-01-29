@@ -58,7 +58,7 @@ const initState = {
       timetable: "Opens 8:30AM",
     },
     {
-      name: "Baku Clinic",
+      name: "Istanbul Clinic",
       lng: 59.955413,
       lat: 30.337157,
       rating: 5,
