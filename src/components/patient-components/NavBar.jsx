@@ -12,11 +12,14 @@ import {
   DropdownItem,
   Container,
 } from "reactstrap";
+import { connect } from "react-redux";
+import { setMenu, signOut } from "../../actions/Actions";
 
 class NavBar extends React.Component {
   state = {
     isOpen: false,
     dropdownOpen: false,
+    notificationOpen: false,
     color: "transparent",
   };
   sidebarToggle = React.createRef();
@@ -39,31 +42,13 @@ class NavBar extends React.Component {
       dropdownOpen: !this.state.dropdownOpen,
     });
   };
-  //   getBrand = () => {
-  //     var name;
-  //     {Object.keys(this.props.routes).map((prop, key) => {
-  //       if (prop.collapse) {
-  //         prop.views.map((prop, key) => {
-  //           if (prop.path === this.props.location.pathname) {
-  //             name = prop.name;
-  //           }
-  //           return null;
-  //         });
-  //       } else {
-  //         if (prop.redirect) {
-  //           if (prop.path === this.props.location.pathname) {
-  //             name = prop.name;
-  //           }
-  //         } else {
-  //           if (prop.path === this.props.location.pathname) {
-  //             name = prop.name;
-  //           }
-  //         }
-  //       }
-  //       return null;
-  //     });
-  //     return name;
-  //   };
+
+  notificationToggle = (e) => {
+    this.setState({
+      notificationOpen: !this.state.notificationOpen,
+    });
+  };
+
   openSidebar = () => {
     document.documentElement.classList.toggle("nav-open");
     this.sidebarToggle.current.classList.toggle("toggled");
@@ -127,28 +112,95 @@ class NavBar extends React.Component {
             className="justify-content-end"
           >
             <Nav navbar>
-              <NavItem>
-                <Link to="#pablo" className="nav-link">
-                  <i className="fas fa-envelope fa-1x" />
+              <Dropdown
+                nav
+                isOpen={this.state.notificationOpen}
+                toggle={(e) => this.notificationToggle(e)}
+              >
+                <DropdownToggle nav>
+                  <i className="fas fa-bell fa-2x nav-icon-color ml-3" />
                   <p>
                     <span className="d-lg-none d-md-block">Notifications</span>
                   </p>
-                </Link>
-              </NavItem>
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <div
+                    class="dropdown-list  dropdown-menu-right shadow animated--grow-in show"
+                    aria-labelledby="alertsDropdown"
+                  >
+                    <h6 class="dropdown-header">Alerts Center</h6>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                      <div class="mr-3">
+                        <div class="icon-circle bg-primary">
+                          <i class="fas fa-file-alt text-white"></i>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="small text-gray-500">December 12, 2020</div>
+                        <span class="font-weight-bold">
+                          A new monthly report is ready to download!
+                        </span>
+                      </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                      <div class="mr-3">
+                        <div class="icon-circle bg-success">
+                          <i class="fas fa-user text-white"></i>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="small text-gray-500">December 7, 2020</div>
+                        <span class="font-weight-bold">
+                          A new appointment is pending
+                        </span>
+                      </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                      <div class="mr-3">
+                        <div class="icon-circle bg-warning">
+                          <i class="fas fa-search text-white"></i>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="small text-gray-500">December 2, 2020</div>
+                        <span class="font-weight-bold">
+                          You were listed in search 10 times this week
+                        </span>
+                      </div>
+                    </a>
+                    <a
+                      class="dropdown-item text-center small text-gray-500"
+                      href="#"
+                    >
+                      Show All Notifications
+                    </a>
+                  </div>
+                </DropdownMenu>
+              </Dropdown>
               <Dropdown
                 nav
                 isOpen={this.state.dropdownOpen}
                 toggle={(e) => this.dropdownToggle(e)}
               >
-                <DropdownToggle caret nav>
-                  <i className="fas fa-user fa-1x" />
+                <DropdownToggle nav>
+                  <i className="fas fa-user fa-2x nav-icon-color ml-3" />
                   <p>
                     <span className="d-lg-none d-md-block">Profile</span>
                   </p>
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem tag="a">Settings</DropdownItem>
-                  <DropdownItem tag="a">Sign out</DropdownItem>
+                  <DropdownItem
+                    tag="a"
+                    onClick={() => this.props.setMenu("My data")}
+                  >
+                    Settings
+                  </DropdownItem>
+                  <DropdownItem
+                    tag="a"
+                    onClick={() => this.props.userSignOut()}
+                  >
+                    Sign out
+                  </DropdownItem>
                 </DropdownMenu>
               </Dropdown>
             </Nav>
@@ -159,4 +211,21 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setMenu: (menu) => {
+      dispatch(setMenu(menu));
+    },
+    userSignOut: () => {
+      dispatch(signOut());
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

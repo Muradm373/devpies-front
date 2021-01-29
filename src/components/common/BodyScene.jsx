@@ -45,8 +45,6 @@ export default function BodyScene(props) {
         />
 
         <OrbitControls
-          minPolarAngle={Math.PI / 2}
-          maxPolarAngle={Math.PI / 2}
           enablePan={false}
         />
       </Canvas>
@@ -60,8 +58,9 @@ export default function BodyScene(props) {
 
         onClick={()=> set(!questionary)}
       >
-        <Fab color="secondary" aria-label="edit">
-          <i className="fas fa-check fa-1x" />
+        <Fab variant="extended" color="secondary" aria-label="edit">
+          <i className="fas fa-check fa-1x mr-3" />
+          Fill Questionnaire
         </Fab>
         
       </div>

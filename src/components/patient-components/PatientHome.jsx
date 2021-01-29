@@ -17,7 +17,7 @@ class PatientHome extends Component {
 
         <div id="body">
           <main>
-            <NavBar></NavBar>
+            <NavBar routes={routes} ></NavBar>
             <div className="main-panel ps ps--active-y">
               <div className="content ">
                 <div className="pan-header"></div>

@@ -17,14 +17,19 @@ export const doSignIn = (email, password) => {
 };
 
 export const signIn = (authUser) => {
-  console.log(authUser);
-
   return {
     type: "USER_SIGN_IN",
     authUser: authUser,
     user: authUser,
   };
 };
+
+export const signOut = () => {
+  return {
+    type: "USER_SIGN_OUT",
+  };
+};
+
 
 export const getCurrentUser = (authUser) => {
   console.log(authUser);

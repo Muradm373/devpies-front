@@ -39,6 +39,11 @@ const initState = {
       symptoms: ["headache", "apathy", "irritability"],
       hospitalName: "Leyla Medical Center",
       status: "Pending",
+    },{
+      dateOfIssue: "01/11/2021",
+      symptoms: ["headache", "apathy", "irritability"],
+      hospitalName: "Leyla Medical Center",
+      status: "Pending",
     },
   ],
 
@@ -108,6 +113,7 @@ const rootReducer = (state = initState, action) => {
     return {
       ...state,
       authUser: undefined,
+      userType: undefined
     };
   }
 

@@ -16,6 +16,7 @@
     "drei": "^2.2.21",
     "google-map-react": "^2.1.9",
     "mdbreact": "^5.0.1",
+    "node-sass": "^4.14.1",
     "perfect-scrollbar": "^1.5.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
@@ -31,12 +32,13 @@
     "reactstrap": "^8.8.1",
     "redux": "^4.0.5",
     "serve": "^11.3.2",
+    "swiper": "^4.3.5",
     "three": "^0.124.0",
     "valtio": "^0.6.3",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "serve -s build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

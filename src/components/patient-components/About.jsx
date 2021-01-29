@@ -9,7 +9,7 @@ class About extends Component {
     return (
       <div>
         <div class="header text-center mt-3">
-          <h2 class="title">Why Devpies?</h2>
+          <h4 class="title">Why Devpies?</h4>
           <p class="category mt-2 description text-center">
             Devpies is an AI based medical assistant for doctors and patients.
           </p>
@@ -23,7 +23,7 @@ class About extends Component {
               />
               <div class="card-body">
                 <h5 class="card-title">Simple</h5>
-                <p class="card-text mb-3 description text-center">
+                <p class="card-text mb-3 description text-left size-m">
                   Devpies has a user-friendly interface so you already know how
                   to use it.
                 </p>
@@ -38,7 +38,7 @@ class About extends Component {
               />
               <div class="card-body">
                 <h5 class="card-title">Dataset</h5>
-                <p class="card-text mb-3 description text-center">
+                <p class="card-text mb-3 description text-left size-m">
                   Devpies has the key difference - carefully created dataset to
                   get maximum accuracy.
                 </p>
@@ -54,7 +54,7 @@ class About extends Component {
               />
               <div class="card-body">
                 <h5 class="card-title">Approval</h5>
-                <p class="card-text mb-3 description text-center">
+                <p class="card-text mb-3 description text-left size-m">
                   Devpies has an approve and positive feedback from medical
                   students and doctors.
                 </p>
@@ -72,7 +72,7 @@ class About extends Component {
               />
               <div class="card-body">
                 <h5 class="card-title">Powerful</h5>
-                <p class="card-text mb-3 description text-center">
+                <p class="card-text mb-3 description text-left size-m">
                   Devpies contains 900+ diseases and 1500+ symptoms and signs
                   only for therapy.
                 </p>
@@ -87,7 +87,7 @@ class About extends Component {
               />
               <div class="card-body">
                 <h5 class="card-title">Open</h5>
-                <p class="card-text mb-3 description text-center">
+                <p class="card-text mb-3 description text-left size-m">
                   Devpies has an open API to assist doctors to diagnose diseases
                   and help patients to find physician.
                 </p>
@@ -102,7 +102,7 @@ class About extends Component {
               />
               <div class="card-body">
                 <h5 class="card-title title">News</h5>
-                <p class="card-text mb-3 description text-center">
+                <p class="card-text mb-3 description text-left size-m">
                   Devpies shows daily basis diseases people suffer from and
                   serve them as a sort of a newsfeed.
                 </p>

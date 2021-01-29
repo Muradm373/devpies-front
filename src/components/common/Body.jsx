@@ -79,7 +79,7 @@ export default function Body(props) {
     <group ref={group} {...props} dispose={null}>
       <group
         position={[0, -2.7, 0]}
-        scale={[3.7, 3.7, 3.7]}
+        scale={[3.5, 3.5, 3.5]}
         onPointerOver={(e) => {
           e.stopPropagation();
           set(e.object.name);

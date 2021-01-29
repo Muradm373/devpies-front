@@ -1,11 +1,36 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import AppointmentHeader from "./AppointmentHeader";
+import Swiper from "swiper";
+
+const params = {
+  container: ".container",
+  pagination: ".swiper-pagination",
+  paginationClickable: true,
+  direction: "vertical",
+  mousewheel: true, // https://idangero.us/swiper/api/#mousewheel
+};
 
 class Appointments extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  componentDidMount() {
+    this.swiper = new Swiper(".blog-slider", {
+      direction: "vertical",
+      spaceBetween: 30,
+      effect: "fade",
+      mousewheel: {
+        invert: false,
+      },
+      //   autoHeight: true,
+      pagination: {
+        el: ".blog-slider__pagination",
+        clickable: false,
+      },
+    });
   }
   render() {
     return (
@@ -18,7 +43,7 @@ class Appointments extends Component {
             Here you will see your active appointments and appointments history.
           </p>
           <hr className="mb-5" />
-          <p className="mt-2 description text-left  mx-auto sub-header">
+          <p className="mt-2 description text-center  mx-auto sub-header">
             Active Appointments
           </p>
           {this.props.activeAppointments.length === 0 ? (
@@ -30,29 +55,47 @@ class Appointments extends Component {
             </>
           ) : (
             <div className="list-group">
-              {this.props.activeAppointments.map((appointment) => {
-                return (
-                  <AppointmentHeader
-                    appointment={appointment}
-                  ></AppointmentHeader>
-                );
-              })}
+              <div class="blog-slider">
+                <div class="blog-slider__wrp swiper-wrapper">
+                  {this.props.activeAppointments.map((appointment) => {
+                    return (
+                      <AppointmentHeader
+                        appointment={appointment}
+                      ></AppointmentHeader>
+                    );
+                  })}
+                </div>
+                <div class="blog-slider__pagination"></div>
+              </div>
             </div>
           )}
-
-          <hr className="mb-5" />
-          <p className="mt-2 description text-left mx-auto sub-header">
+          
+          <hr className="my-5" />
+          <p className="mt-2 description text-center mx-auto sub-header">
             Appointments History
           </p>
           {this.props.appointmentsHistory.length === 0 ? (
             <>
-              <li className="fas fa-history fa-4x icon-color"></li>
+              <li className="fas fa-history fa-4x icon-color m-5"></li>
               <p className="mt-2 description text-center w-75 mx-auto">
                 No Appointments History yet
               </p>
             </>
           ) : (
-            <></>
+            <div className="list-group">
+              <div class="blog-slider">
+                <div class="blog-slider__wrp swiper-wrapper">
+                  {this.props.activeAppointments.map((appointment) => {
+                    return (
+                      <AppointmentHeader
+                        appointment={appointment}
+                      ></AppointmentHeader>
+                    );
+                  })}
+                </div>
+                <div class="blog-slider__pagination"></div>
+              </div>
+            </div>
           )}
         </div>
       </div>
