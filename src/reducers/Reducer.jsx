@@ -37,9 +37,10 @@ const initState = {
     {
       dateOfIssue: "01/11/2021",
       symptoms: ["headache", "apathy", "irritability"],
-      hospitalName: "Leyla Medical Center",
+      hospitalName: "Biosis Tibb Mərkəzi",
       status: "Pending",
-    },{
+    },
+    {
       dateOfIssue: "01/11/2021",
       symptoms: ["headache", "apathy", "irritability"],
       hospitalName: "Leyla Medical Center",
@@ -49,11 +50,11 @@ const initState = {
 
   hospitals: [
     {
-      name: "Leyla Medical Clinic",
+      name: "Biosis Tibb Mərkəzi",
       lng: 59.938043,
       lat: 30.337157,
       rating: 5,
-      address: "101 Hasan Aliyev str",
+      address: "101 Kilyazi",
       phoneNumber: "(012)000 00 00",
       timetable: "Opens 8:30AM",
     },
@@ -76,18 +77,22 @@ const initState = {
       timetable: "Opens 8:30AM",
     },
   ],
-  myPatients: [  {
-    user: { name: "Murad", surname: "Mammadov" },
-    symptoms: ["headache", "apathy", "irritability"],
-    date: "03.12.2020",
-    thumbnail: "https://www.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg"
-  },
-  {
-    user: { name: "Anar", surname: "Aliyev" },
-    symptoms: ["headache", "apathy", "irritability"],
-    date: "03.12.2020",
-    thumbnail:"https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/profile_user.jpg"
-  }],
+  myPatients: [
+    {
+      user: { name: "Murad", surname: "Mammadov" },
+      symptoms: ["headache", "apathy", "irritability"],
+      date: "03.12.2020",
+      thumbnail:
+        "https://www.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg",
+    },
+    {
+      user: { name: "Anar", surname: "Aliyev" },
+      symptoms: ["headache", "apathy", "irritability"],
+      date: "03.12.2020",
+      thumbnail:
+        "https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/profile_user.jpg",
+    },
+  ],
   feedbacks: [
     {
       user: { name: "Murad", surname: "Mammadov" },
@@ -102,7 +107,7 @@ const initState = {
       date: "03.12.2020",
     },
   ],
-  selectedBodyParts: []
+  selectedBodyParts: [],
 };
 
 const rootReducer = (state = initState, action) => {
@@ -124,7 +129,7 @@ const rootReducer = (state = initState, action) => {
     return {
       ...state,
       authUser: undefined,
-      userType: undefined
+      userType: undefined,
     };
   }
 

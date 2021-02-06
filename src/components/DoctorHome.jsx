@@ -3,11 +3,14 @@ import { routes } from "../utilities/DoctorRoutes";
 import Sidebar from "./patient-components/Sidebar";
 import NavBar from "./patient-components/NavBar";
 import { connect } from "react-redux";
+import { setMenu } from "../actions/Actions";
 
 class DoctorHome extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+
+    this.props.setMenu("My Appointments");
   }
   render() {
     return (
@@ -38,6 +41,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     signOut: () => {},
+    setMenu: (menu) => {
+      dispatch(setMenu(menu));
+    },
   };
 };
 
