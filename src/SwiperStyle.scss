@@ -156,9 +156,9 @@
     line-height: 1.5em;
   }
   
-  &__button {
+  &__button-red {
         display: inline-flex;
-    background-image: linear-gradient(147deg, #B1CFFF 0%, #4285F4 74%);
+    background-image: linear-gradient(147deg, #ffb1d7 0%, #f442aa 74%);
     padding: 15px 35px;
     border-radius: 50px;
     color: #fff;
@@ -170,8 +170,28 @@
     @media screen and (max-width: 576px) {
       width: 100%;
     }
+
+    
     
   }
+  &__button {
+    display: inline-flex;
+background-image: linear-gradient(147deg, #B1CFFF 0%, #4285F4 74%);
+padding: 15px 35px;
+border-radius: 50px;
+color: #fff;
+text-decoration: none;
+font-weight: 500;
+    justify-content: center;
+text-align: center;
+letter-spacing: 1px;
+@media screen and (max-width: 576px) {
+  width: 100%;
+}
+
+
+
+}
   .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
     bottom: 10px;
     left: 0;

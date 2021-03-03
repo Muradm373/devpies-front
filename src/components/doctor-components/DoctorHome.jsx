@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { routes } from "../utilities/DoctorRoutes";
-import Sidebar from "./patient-components/Sidebar";
-import NavBar from "./patient-components/NavBar";
+import { routes } from "../../utilities/DoctorRoutes";
+import Sidebar from "../patient-components/Sidebar";
+import NavBar from "../patient-components/NavBar";
 import { connect } from "react-redux";
-import { setMenu } from "../actions/Actions";
+import { setMenu } from "../../actions/Actions";
 
 class DoctorHome extends Component {
   constructor(props) {

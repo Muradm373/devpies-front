@@ -2,7 +2,7 @@ const initState = {
   user: undefined,
   authUser: undefined,
   userType: undefined,
-  menu: "My Appointments",
+  menu: 0,
   files: [
     {
       filename: "Test Results",

@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PatientHome from "./components/patient-components/PatientHome";
-import DoctorHome from "./components/DoctorHome";
+import DoctorHome from "./components/doctor-components/DoctorHome";
 import Login from "./components/Login";
 import { connect } from "react-redux";
 import RepresentativeHome from "./components/representative-components/RepresentativeHome";
@@ -18,13 +18,17 @@ function App(props) {
           render={() => {
             return props.authUser !== undefined ? (
               props.userType === "ADMIN" ? (
-                <DoctorHome />
+                // <AdminHome />
+                <AdminHome />
               ) : props.userType === "USER" ? (
-                <PatientHome />
+                < PatientHome/>
+              
               ) : props.userType === "DOCTOR" ? (
                 <DoctorHome />
               ) : props.userType === "REPRESENTATIVE" ? (
-                <RepresentativeHome />
+                <RepresentativeHome/>
+                
+                // <PatientHome menu="AI Assistant"/>
               ) : (
                 <Login />
               )

@@ -4,10 +4,11 @@ export const headers = {
   "Content-Type": "application/json",
 };
 
-const devpiesAPI = "https://devpies-back.herokuapp.com";
-// const devpiesAPI = "http://localhost:9090";
+// export const const devpiesAPI = "https://devpies-back.herokuapp.com";
+export const devpiesAPI = "http://localhost:9090";
 
 export const setMenu = (menu) => {
+  console.log(menu)
   return { type: "SET_MENU", menu: menu };
 };
 

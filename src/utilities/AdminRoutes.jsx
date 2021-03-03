@@ -1,44 +1,45 @@
-import MyAppointments from "../components/doctor-components/MyAppointments";
-import MyPatients from "../components/doctor-components/MyPatients";
-import MySchedule from "../components/doctor-components/MySchedule";
-import Statistics from "../components/doctor-components/Statistics";
-import NewsFeed from "../components/doctor-components/NewsFeed";
+import DoctorsManagement from "../components/admin-components/DoctorsManagement"
+import HospitalsManagement from "../components/admin-components/HospitalsManagement";
+import PatientsManagement from "../components/admin-components/PatientsManagement";
+import RepresentativesManagement from "../components/admin-components/RepresentativesManagement";
+import NewsManagement from "../components/admin-components/NewsManagement";
+
 
 export let routes = {
-  "My Appointments": {
+  "Doctors": {
     path: "/#",
-    icon: "fas fa-calendar-check fa-2x",
-    component: <MyAppointments></MyAppointments>,
+    icon: "fas fa-user-nurse fa-2x",
+    component: <DoctorsManagement></DoctorsManagement>,
     layout: "/",
-    label: "My Appointments",
+    label: "Doctors",
   },
-  "My Patients": {
+  "Representatives": {
+    path: "/#",
+    icon: "fas fa-user-md fa-2x",
+    component: <RepresentativesManagement></RepresentativesManagement>,
+    layout: "/",
+    label: "Representatives",
+  },
+  "Patients": {
     path: "/#",
     icon: "fas fa-user fa-2x",
-    component: <MyPatients></MyPatients>,
+    component: <PatientsManagement></PatientsManagement>,
     layout: "/",
-    label: "My Patients",
+    label: "Patients",
   },
-  Statistics: {
+  "Hospitals": {
     path: "/#",
-    icon: "fas fa-chart-bar fa-2x",
-    component: <Statistics></Statistics>,
+    icon: "fas fa-hospital fa-2x",
+    component: <HospitalsManagement></HospitalsManagement>,
     layout: "/",
-    label: "Statistics",
+    label: "Hospitals",
   },
+  
   News: {
     path: "/#",
     icon: "fas fa-newspaper fa-2x",
-    component: <NewsFeed></NewsFeed>,
+    component: <NewsManagement></NewsManagement>,
     layout: "/",
     label: "News",
-  },
-
-  "My Schedule": {
-    path: "/#",
-    icon: "fas fa-calendar-alt fa-2x",
-    component: <MySchedule></MySchedule>,
-    layout: "/",
-    label: "My Schedule",
   },
 };

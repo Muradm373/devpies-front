@@ -24,7 +24,7 @@ class PatientHome extends Component {
             <div className="main-panel ps ps--active-y">
               <div className="content ">
                 <div className="pan-header"></div>
-                {routes[this.props.menu].component}
+                {this.props.menu === 0 ? routes["AI Assistant"].component : routes[this.props.menu].component}
               </div>
             </div>
           </main>
