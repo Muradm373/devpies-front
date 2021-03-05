@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar";
 import NavBar from "./NavBar";
 import { routes } from "../../utilities/Routes";
 import { setMenu } from "../../actions/Actions";
+import { getPatientProfile } from "../../actions/PatientActions";
 
 class PatientHome extends Component {
   constructor(props) {
@@ -11,6 +12,11 @@ class PatientHome extends Component {
     this.state = {};
 
     this.props.setMenu("AI Assistant");
+  }
+
+  componentDidMount(){
+    
+    this.props.getPatientProfile();
   }
 
   render() {
@@ -42,7 +48,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signOut: () => {},
+    getPatientProfile: () => {
+      getPatientProfile(dispatch)
+    },
     setMenu: (menu) => {
       dispatch(setMenu(menu));
     },

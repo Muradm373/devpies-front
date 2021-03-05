@@ -58,24 +58,6 @@ const initState = {
       phoneNumber: "(012)000 00 00",
       timetable: "Opens 8:30AM",
     },
-    {
-      name: "Istanbul Clinic",
-      lng: 59.955413,
-      lat: 30.337157,
-      rating: 5,
-      address: "35 Matbuat avenue",
-      phoneNumber: "(012)000 00 00",
-      timetable: "Opens 8:30AM",
-    },
-    {
-      name: "Hayat Clinic",
-      lng: 59.955413,
-      lat: 30.337157,
-      rating: 5,
-      address: "Qara Qarayev Pr., 66 / 1",
-      phoneNumber: "(012) 000 00 00",
-      timetable: "Opens 8:30AM",
-    },
   ],
   myPatients: [
     {
@@ -108,6 +90,18 @@ const initState = {
     },
   ],
   selectedBodyParts: [],
+
+  listOfAdminDoctors: [],
+  listOfAdminPatients: [],
+  listOfAdminRepresentatives: [],
+  listOfAdminHospitals: [],
+
+  adminHasMoreDoctors: true,
+  adminHasMorePatients: true,
+  adminHasMoreRepresentatives: true,
+  adminHasMoreHospitals: true,
+
+  fetchedUser: {}
 };
 
 const rootReducer = (state = initState, action) => {
@@ -140,7 +134,151 @@ const rootReducer = (state = initState, action) => {
     };
   }
 
+  //PATIENT
+
+  if (action.type === "DELETE_PATIENT_PROFILE") {
+    return { ...state, usertype: action.usertype };
+  }
+  if (action.type === "EDIT_PATIENT_PROFILE") {
+    return { ...state, usertype: action.usertype };
+  }
+  if (action.type === "SET_USER_INFO") {
+    return { ...state, usertype: action.usertype };
+  }
+  if (action.type === "SET_LIST_OF_HOSPITALS") {
+    return { ...state, hospitals: action.data };
+  }
+  if (action.type === "SET_HOSPITAL_BY_ID") {
+    return { ...state, usertype: action.usertype };
+  }
+  if (action.type === "SET_LIST_OF_DOCTORS_BY_HOSPITAL") {
+    return { ...state, usertype: action.usertype };
+  }
+  if (action.type === "SET_LIST_OF_DOCTORS") {
+    return { ...state, usertype: action.usertype };
+  }
+  if (action.type === "CREATE_APPOINTMENT") {
+    return { ...state, usertype: action.usertype };
+  }
+  if (action.type === "SET_LIST_OF_APPOINTMENTS") {
+    return { ...state, usertype: action.usertype };
+  }
+  if (action.type === "SET_LIST_OF_APPOINTMENTS_BY_STATUS") {
+    return { ...state, usertype: action.usertype };
+  }
+  if (action.type === "SET_APPOINTMENT_BY_ID") {
+    return { ...state, usertype: action.usertype };
+  }
+  if (action.type === "CANCEL_APPOINTMENT_BY_ID") {
+    return { ...state, usertype: action.usertype };
+  }
+  if (action.type === "CHANGE_DATE_OF_APPOINTMENT_BY_ID") {
+    return { ...state, usertype: action.usertype };
+  }
+  if (action.type === "CHANGE_DETAILS_OF_APPOINTMENT_BY_ID") {
+    return { ...state, usertype: action.usertype };
+  }
+
+  //ADMIN
+
+  if (action.type === "SET_LIST_OF_USERS_BY_PAGE") {
+
+    if (action.data === []) return { ...state, adminHasMorePatients: false };
+
+    let patients = state.listOfAdminPatients;
+    let concatPatients = patients.concat(action.data)
+    return {
+      ...state,
+      listOfAdminPatients: [...concatPatients],
+    };
+  }
+  if (action.type === "SET_LIST_OF_HOSPITALS_BY_PAGE") {
+    if (action.data === []) return { ...state, adminHasMoreHospitals: false };
+
+    let hospitals = state.listOfAdminHospitals;
+    let concatHospitals = hospitals.concat(action.data)
+    return {
+      ...state,
+      listOfAdminHospitals: [...concatHospitals],
+    };
+  }
+  if (action.type === "SET_LIST_OF_REPRESENTATIVES_BY_PAGE") {
+    if (action.data === []) return { ...state, adminHasMoreRepresentatives: false };
+
+    let representatives = state.listOfAdminRepresentatives;
+    let concatRepresentatives = representatives.concat(action.data)
+    return {
+      ...state,
+      listOfAdminRepresentatives: [...concatRepresentatives],
+    };
+  }
+  if (action.type === "SET_LIST_OF_DOCTORS_BY_PAGE") {
+    if (action.data === []) return { ...state, adminHasMoreDoctors: false };
+
+    let doctors = state.listOfAdminDoctors;
+    let concatDoctors = doctors.concat(action.data)
+    return {
+      ...state,
+      listOfAdminDoctors: [...concatDoctors],
+    };
+  }
+
+  if (action.type === "RESET_LIST_OF_USERS_BY_PAGE") {
+    return {
+      ...state,
+      listOfAdminPatients: [],
+    };
+  }
+  if (action.type === "RESET_LIST_OF_DOCTORS_BY_PAGE") {
+    return {
+      ...state,
+      listOfAdminDoctors: [],
+    };
+  }
+  if (action.type === "RESET_LIST_OF_HOSPITALS_BY_PAGE") {
+    return {
+      ...state,
+      listOfAdminHospitals: [],
+    };
+  }
+  if (action.type === "RESET_LIST_OF_REPRESENTATIVES_BY_PAGE") {
+    return {
+      ...state,
+      listOfAdminRepresentatives: [],
+    };
+  }
+
+  if (action.type === "SET_DOCTOR_BY_ID") {
+    return {
+      ...state,
+      fetchedUser: action.data,
+    };
+  }
+
+  if (action.type === "SET_PATIENT_BY_ID") {
+    return {
+      ...state,
+      fetchedUser: action.data,
+    };
+  }
+
+  if (action.type === "SET_REPRESENTATIVE_BY_ID") {
+    return {
+      ...state,
+      fetchedUser: action.data,
+    };
+  }
+
+  if (action.type === "SET_HOSPITAL_BY_ID") {
+    return {
+      ...state,
+      fetchedHospital: action.data,
+    };
+  }
+
   return { ...state };
 };
+
+
 
 export default rootReducer;

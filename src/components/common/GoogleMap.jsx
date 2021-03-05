@@ -8,7 +8,6 @@ import IconButton from "@material-ui/core/IconButton";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
 class GoogleMap extends Component {
   constructor(props) {
     super(props);
@@ -21,6 +20,15 @@ class GoogleMap extends Component {
       zoom: 11,
     };
   }
+  parseTime(time){
+    let timeArr = JSON.stringify(time).split("T");
+    let unformatted = timeArr[1];
+    let unformattedSplit = unformatted.split(":");
+
+    return(`${unformattedSplit[0]}:${unformattedSplit[1]}`)
+  }
+
+
   render() {
     return (
       <div style={{ height: "100vh", width: "100%" }}>
@@ -72,7 +80,7 @@ class GoogleMap extends Component {
                             </Typography>
                             {` - ${prop.address}`}
                             <br />
-                            {`${prop.timetable} | ${prop.phoneNumber}`}
+                            {`${this.parseTime(prop.openTime)}-${this.parseTime(prop.closeTime)} | ${prop.phoneNumber}`}
                           </React.Fragment>
                         }
                       />
@@ -95,8 +103,8 @@ class GoogleMap extends Component {
         >
           {this.state.selectedHospital !== undefined ? (
             <AnyReactComponent
-              lat={this.state.selectedHospital.lat}
-              lng={this.state.selectedHospital.lat.lng}
+              lat={parseFloat(this.state.selectedHospital.lat)}
+              lng={parseFloat(this.state.selectedHospital.lat.lng)}
               text={this.state.selectedHospital.name}
             />
           ) : (

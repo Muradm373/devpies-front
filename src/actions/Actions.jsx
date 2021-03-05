@@ -34,7 +34,7 @@ export const signOut = () => {
 
 export const getCurrentUser = (authUser) => {
   console.log(authUser);
-  localStorage.setItem("authUser", JSON.stringify(authUser));
+  localStorage.setItem("authUser", JSON.stringify(authUser.user.token));
   let url = `${devpiesAPI}/current`;
   headers["Authorization"] = `Bearer ${authUser.user.token}`;
   return axios.get(url, {

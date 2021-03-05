@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import GoogleMap from "../common/GoogleMap";
+import { getListOfHospitals } from "../../actions/PatientActions";
 
 class Hospitals extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
+  componentDidMount(){
+    this.props.getListOfHospitals();
+  }
+
   render() {
     return (
       <div>
@@ -31,7 +37,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {  getListOfHospitals: () => {
+    getListOfHospitals(dispatch)
+  },};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Hospitals);

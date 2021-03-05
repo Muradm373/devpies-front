@@ -10,26 +10,26 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import { getRepresentativeById } from "../../actions/AdminActions";
+import {getDoctorById} from "../../actions/AdminActions";
 
-class RepresentativeManagement extends Component {
+class DoctorManagement extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      details: "",
-      name: "",
-      surname: "",
-      email: "",
-      birthDate: "",
-      address: "",
-      city: "",
-      country: "",
-      postalCode: "",
-      phoneNumber: "",
-      idNumber: "",
+        details: "",
+        name: "",
+        surname: "",
+        email: "",
+        birthDate: "",
+        address:"",
+        city: "",
+        country: "",
+        postalCode: "",
+        phoneNumber: "",
+        idNumber: ""
     };
 
-    this.props.getRepresentativeById(this.props.selectedUser.id);
+    this.props.getDoctorById(this.props.selectedUser.id);
   }
 
   componentWillReceiveProps(props){
@@ -47,6 +47,7 @@ class RepresentativeManagement extends Component {
         idNumber: props.fetchedUser.idNumber
     })
   }
+
   render() {
     return (
       <div>
@@ -278,13 +279,13 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getRepresentativeById: (id) => {
-      getRepresentativeById(dispatch, id);
-    },
+    getDoctorById: (id)=>{
+        getDoctorById(dispatch, id);
+    }
   };
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(RepresentativeManagement);
+)(DoctorManagement);

@@ -10,27 +10,28 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import { getRepresentativeById } from "../../actions/AdminActions";
+import {getPatientById, editPatientById} from "../../actions/AdminActions";
 
 class RepresentativeManagement extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      details: "",
-      name: "",
-      surname: "",
-      email: "",
-      birthDate: "",
-      address: "",
-      city: "",
-      country: "",
-      postalCode: "",
-      phoneNumber: "",
-      idNumber: "",
+        details:"",
+        name: "",
+        surname:"",
+        email: "",
+        birthDate:"",
+        address:"",
+        city: "",
+        country: "",
+        postalCode: "",
+        phoneNumber: "",
+        idNumber: ""
     };
 
-    this.props.getRepresentativeById(this.props.selectedUser.id);
+    this.props.getPatientById(this.props.selectedUser.id);
   }
+
 
   componentWillReceiveProps(props){
     this.setState({
@@ -46,6 +47,10 @@ class RepresentativeManagement extends Component {
         phoneNumber: props.fetchedUser.phoneNumber,
         idNumber: props.fetchedUser.idNumber
     })
+  }
+
+  savePatient(){
+      this.props.editPatientById(this.props.fetchedUser.id, this.state)
   }
   render() {
     return (
@@ -256,7 +261,7 @@ class RepresentativeManagement extends Component {
                       </a>
                     </Col>
                     <Col md="6">
-                      <a href="#" class="blog-slider__button w-50">
+                      <a href="#" class="blog-slider__button w-50" onClick={()=>{this.savePatient()}}>
                         Save
                       </a>
                     </Col>
@@ -278,9 +283,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getRepresentativeById: (id) => {
-      getRepresentativeById(dispatch, id);
+    getPatientById: (id)=>{
+        getPatientById(dispatch, id)
     },
+    editPatientById: (id, patient)=>{
+        editPatientById(dispatch, id, patient)
+    }
   };
 };
 
