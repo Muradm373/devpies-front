@@ -10,7 +10,7 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import { getRepresentativeById } from "../../actions/AdminActions";
+import { getRepresentativeById, editRepresentativeById } from "../../actions/AdminActions";
 
 class RepresentativeManagement extends Component {
   constructor(props) {
@@ -31,6 +31,21 @@ class RepresentativeManagement extends Component {
 
     this.props.getRepresentativeById(this.props.selectedUser.id);
   }
+
+  saveRepresentative(){
+    let representative = JSON.stringify({
+      "phoneNumber": this.state.phoneNumber,
+      "homePhoneNumber": this.state.phoneNumber,
+      "name": this.state.name,
+      "surname": this.state.surname,
+      "country": this.state.country,
+      "city": this.state.city,
+      "zip": this.state.zip,
+      "idNumber": this.state.idNumber,
+      "birthDate": this.state.birthDate,
+    })
+    this.props.editRepresentativeById(this.props.fetchedUser.id, representative)
+}
 
   componentWillReceiveProps(props){
     this.setState({
@@ -142,7 +157,7 @@ class RepresentativeManagement extends Component {
                         <Col className="pl-1" md="6">
                           <FormGroup>
                             <label>Last Name</label>
-                            <Input
+                            <Input onChange={(e)=>this.setState({surname: e.target.value})}
                               defaultValue={this.state.surname}
                               placeholder="Last Name"
                               type="text"
@@ -256,7 +271,7 @@ class RepresentativeManagement extends Component {
                       </a>
                     </Col>
                     <Col md="6">
-                      <a href="#" class="blog-slider__button w-50">
+                      <a href="#" class="blog-slider__button w-50" onClick={()=>{this.saveRepresentative()}}>
                         Save
                       </a>
                     </Col>
@@ -281,6 +296,9 @@ const mapDispatchToProps = (dispatch) => {
     getRepresentativeById: (id) => {
       getRepresentativeById(dispatch, id);
     },
+    editRepresentativeById: (id, representative) => {
+      editRepresentativeById(dispatch, id, representative)
+    }
   };
 };
 

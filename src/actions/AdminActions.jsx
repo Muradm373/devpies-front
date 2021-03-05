@@ -78,7 +78,7 @@ export const registerAdmin = (dispatch, username, password) => {
   export const editPatientById = (dispatch, patientId, patient) => {
     let url = `${devpiesAPI}/admin/users/${patientId}`;
 
-    axios.put(url, {patient: patient}, { headers: headers }).then((response) => {
+    axios.put(url, patient, { headers: headers }).then((response) => {
       let patient = response.data;
   
       console.log(patient);
@@ -144,7 +144,7 @@ export const registerAdmin = (dispatch, username, password) => {
   export const editRepresentativeById = (dispatch, representativeId, representative) => {
     let url = `${devpiesAPI}/admin/representatives/${representativeId}`;
 
-    axios.put(url, {representative: representative}, { headers: headers }).then((response) => {
+    axios.put(url, representative, { headers: headers }).then((response) => {
       let representative = response.data;
   
       console.log(representative);
@@ -273,7 +273,7 @@ export const registerAdmin = (dispatch, username, password) => {
   export const editDoctorById = (dispatch, doctorId, doctor) => {
     let url = `${devpiesAPI}/admin/doctors/${doctorId}`;
 
-    axios.put(url, {doctor: doctor}, { headers: headers }).then((response) => {
+    axios.put(url, doctor, { headers: headers }).then((response) => {
       let doctor = response.data;
   
       console.log(doctor);
@@ -339,7 +339,7 @@ export const registerAdmin = (dispatch, username, password) => {
   export const addRepresentative = (dispatch, username, password, representative) => {
     let url = `${devpiesAPI}/admin/representatives?username=${username}&password=${password}`;
 
-    axios.post(url,{representative: representative}, { headers: headers }).then((response) => {
+    axios.post(url, representative, { headers: headers }).then((response) => {
       let representative = response.data;
   
       console.log(representative);
@@ -352,10 +352,27 @@ export const registerAdmin = (dispatch, username, password) => {
  
   };
 
+  export const addDoctor = (dispatch, username, password, doctor) => {
+    let url = `${devpiesAPI}/admin/doctor?username=${username}&password=${password}`;
+
+    axios.post(url,doctor, { headers: headers }).then((response) => {
+      let doctor = response.data;
+  
+      console.log(doctor);
+  
+      dispatch({
+        type: "ADD_DOCTOR",
+        data: doctor,
+      });
+    });
+ 
+  };
+
+
   export const editRepresentative = (dispatch, representative) => {
     let url = `${devpiesAPI}/admin/representatives`;
 
-    axios.put(url,{representative: representative}, { headers: headers }).then((response) => {
+    axios.put(url,representative, { headers: headers }).then((response) => {
       let representative = response.data;
   
       console.log(representative);

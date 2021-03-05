@@ -146,7 +146,7 @@ class DoctorsManagement extends Component {
                         );
                       }}
                     </BottomScrollListener>
-                    <div
+                    {/* <div
                       class="float-right mr-3"
                       style={{
                         marginTop: "-50px",
@@ -162,7 +162,7 @@ class DoctorsManagement extends Component {
                         <i className="fas fa-user-nurse fa-1x mr-3" />
                         Add doctor
                       </Fab>
-                    </div>
+                    </div> */}
                   </CardBody>
                   <hr />
                   <div className="button-container">

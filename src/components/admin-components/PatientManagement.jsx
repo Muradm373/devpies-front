@@ -50,7 +50,18 @@ class RepresentativeManagement extends Component {
   }
 
   savePatient(){
-      this.props.editPatientById(this.props.fetchedUser.id, this.state)
+      let patientNew = JSON.stringify({
+        "phoneNumber": this.state.phoneNumber,
+        "homePhoneNumber": this.state.phoneNumber,
+        "name": this.state.name,
+        "surname": this.state.surname,
+        "country": this.state.country,
+        "city": this.state.city,
+        "zip": this.state.zip,
+        "idNumber": this.state.idNumber,
+        "birthDate": this.state.birthDate,
+      })
+      this.props.editPatientById(this.props.fetchedUser.id, patientNew)
   }
   render() {
     return (
@@ -149,6 +160,7 @@ class RepresentativeManagement extends Component {
                             <label>Last Name</label>
                             <Input
                               defaultValue={this.state.surname}
+                              onChange={(e)=>this.setState({surname: e.target.value})}
                               placeholder="Last Name"
                               type="text"
                             />

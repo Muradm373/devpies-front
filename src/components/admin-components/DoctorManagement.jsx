@@ -10,7 +10,7 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import {getDoctorById} from "../../actions/AdminActions";
+import {getDoctorById, editDoctorById} from "../../actions/AdminActions";
 
 class DoctorManagement extends Component {
   constructor(props) {
@@ -47,6 +47,23 @@ class DoctorManagement extends Component {
         idNumber: props.fetchedUser.idNumber
     })
   }
+
+  
+  saveDoctor(){
+    let doctor = JSON.stringify({
+      "phoneNumber": this.state.phoneNumber,
+      "homePhoneNumber": this.state.phoneNumber,
+      "name": this.state.name,
+      "surname": this.state.surname,
+      "country": this.state.country,
+      "city": this.state.city,
+      "zip": this.state.zip,
+      "idNumber": this.state.idNumber,
+      "birthDate": this.state.birthDate,
+    })
+    this.props.editDoctorById(this.props.fetchedUser.id, doctor)
+}
+
 
   render() {
     return (
@@ -144,6 +161,7 @@ class DoctorManagement extends Component {
                           <FormGroup>
                             <label>Last Name</label>
                             <Input
+                             onChange={(e)=>this.setState({surname: e.target.value})}
                               defaultValue={this.state.surname}
                               placeholder="Last Name"
                               type="text"
@@ -257,7 +275,7 @@ class DoctorManagement extends Component {
                       </a>
                     </Col>
                     <Col md="6">
-                      <a href="#" class="blog-slider__button w-50">
+                      <a href="#" class="blog-slider__button w-50" onClick={()=>{this.saveDoctor()}}>
                         Save
                       </a>
                     </Col>
@@ -281,6 +299,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getDoctorById: (id)=>{
         getDoctorById(dispatch, id);
+    },
+    editDoctorById: (id, doctor) =>{
+        editDoctorById(dispatch, id, doctor)
     }
   };
 };

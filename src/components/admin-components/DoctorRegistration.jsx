@@ -30,6 +30,22 @@ class DoctorRegistration extends Component {
          }
     }
 
+    saveDoctor(){
+      let doctor = JSON.stringify({
+        "phoneNumber": this.state.phoneNumber,
+        "homePhoneNumber": this.state.phoneNumber,
+        "name": this.state.name,
+        "surname": this.state.surname,
+        "country": this.state.country,
+        "city": this.state.city,
+        "zip": this.state.zip,
+        "idNumber": this.state.idNumber,
+        "birthDate": this.state.birthDate,
+      })
+      this.props.editDoctorById(this.props.fetchedUser.id, doctor)
+  }
+  
+
 
     render() {
         return (
