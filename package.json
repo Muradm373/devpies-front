@@ -2,6 +2,9 @@
   "name": "devpies",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material/list": "^9.0.0",
@@ -38,6 +41,7 @@
     "valtio": "^0.6.3",
     "web-vitals": "^0.2.4"
   },
+  
   "scripts": {
     "start": "serve -s build",
     "build": "react-scripts build",
