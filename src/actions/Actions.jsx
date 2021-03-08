@@ -3,12 +3,11 @@ import axios from "axios";
 export const headers = {
   "Content-Type": "application/json",
 };
-
-// export const const devpiesAPI = "https://devpies-back.herokuapp.com";
-export const devpiesAPI = "http://localhost:9090";
+export const devpiesAPI = "https://devpies-back.herokuapp.com";
+//export const devpiesAPI = "http://localhost:9090";
 
 export const setMenu = (menu) => {
-  console.log(menu)
+  console.log(menu);
   return { type: "SET_MENU", menu: menu };
 };
 
@@ -30,7 +29,6 @@ export const signOut = () => {
     type: "USER_SIGN_OUT",
   };
 };
-
 
 export const getCurrentUser = (authUser) => {
   console.log(authUser);
