@@ -9,7 +9,6 @@ class AdminHome extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    console.log(routes[0])
   }
   render() {
     return (

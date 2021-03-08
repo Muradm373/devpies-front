@@ -3,6 +3,7 @@ import Sidebar from "../patient-components/Sidebar";
 import NavBar from "../patient-components/NavBar";
 import { routes } from "../../utilities/RepresentativeRoutes";
 import { connect } from "react-redux";
+import { setMenu } from "../../actions/Actions";
 
 class RepresentativeHome extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class RepresentativeHome extends Component {
         <div className="main-panel ps ps--active-y">
           <div className="content ">
             <div className="pan-header"></div>
-            {routes[this.props.menu].component}
+            {this.props.menu === 0 ? routes["Doctors"].component : routes[this.props.menu].component}
           </div>
         </div>
       </main>
@@ -27,5 +28,19 @@ class RepresentativeHome extends Component {
   </div>);
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
 
-export default RepresentativeHome;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signOut: () => {},
+    setMenu: (menu) => {
+      dispatch(setMenu(menu));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RepresentativeHome);

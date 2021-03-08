@@ -10,17 +10,17 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import {getPatientById, editPatientById} from "../../actions/AdminActions";
+import {getDoctorById, editDoctorById} from "../../actions/AdminActions";
 
-class RepresentativeManagement extends Component {
+class DoctorManagement extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        details:"",
+        details: "",
         name: "",
-        surname:"",
+        surname: "",
         email: "",
-        birthDate:"",
+        birthDate: "",
         address:"",
         city: "",
         country: "",
@@ -29,9 +29,8 @@ class RepresentativeManagement extends Component {
         idNumber: ""
     };
 
-    this.props.getPatientById(this.props.selectedUser.id);
+    this.props.getDoctorById(this.props.selectedUser.id);
   }
-
 
   componentWillReceiveProps(props){
     this.setState({
@@ -49,30 +48,33 @@ class RepresentativeManagement extends Component {
     })
   }
 
-  savePatient(){
-      let patientNew = JSON.stringify({
-        "phoneNumber": this.state.phoneNumber,
-        "homePhoneNumber": this.state.phoneNumber,
-        "name": this.state.name,
-        "surname": this.state.surname,
-        "country": this.state.country,
-        "city": this.state.city,
-        "zip": this.state.zip,
-        "idNumber": this.state.idNumber,
-        "birthDate": this.state.birthDate,
-      })
-      this.props.editPatientById(this.props.fetchedUser.id, patientNew)
-  }
+  
+  saveDoctor(){
+    let doctor = JSON.stringify({
+      "phoneNumber": this.state.phoneNumber,
+      "homePhoneNumber": this.state.phoneNumber,
+      "name": this.state.name,
+      "surname": this.state.surname,
+      "country": this.state.country,
+      "city": this.state.city,
+      "zip": this.state.zip,
+      "idNumber": this.state.idNumber,
+      "birthDate": this.state.birthDate,
+    })
+    this.props.editDoctorById(this.props.fetchedUser.id, doctor)
+}
+
+
   render() {
     return (
       <div>
         <div className=" text-center mt-1">
           <div className="text-left content mx-auto">
             <div className="typography-line text-center pl-0 mb-0">
-              <h5>Patient</h5>
+              <h5>Representatives</h5>
             </div>
             <p className="description text-center w-75 mx-auto mt-0">
-              Here you will be able to edit Patient list.
+              Here you will be able to edit Representatives list.
             </p>
             <Row>
               <Col md="5">
@@ -159,8 +161,8 @@ class RepresentativeManagement extends Component {
                           <FormGroup>
                             <label>Last Name</label>
                             <Input
+                             onChange={(e)=>this.setState({surname: e.target.value})}
                               defaultValue={this.state.surname}
-                              onChange={(e)=>this.setState({surname: e.target.value})}
                               placeholder="Last Name"
                               type="text"
                             />
@@ -273,7 +275,7 @@ class RepresentativeManagement extends Component {
                       </a>
                     </Col>
                     <Col md="6">
-                      <a href="#" class="blog-slider__button w-50" onClick={()=>{this.savePatient()}}>
+                      <a href="#" class="blog-slider__button w-50" onClick={()=>{this.saveDoctor()}}>
                         Save
                       </a>
                     </Col>
@@ -295,11 +297,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPatientById: (id)=>{
-        getPatientById(dispatch, id)
+    getDoctorById: (id)=>{
+        getDoctorById(dispatch, id);
     },
-    editPatientById: (id, patient)=>{
-        editPatientById(dispatch, id, patient)
+    editDoctorById: (id, doctor) =>{
+        editDoctorById(dispatch, id, doctor)
     }
   };
 };
@@ -307,4 +309,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(RepresentativeManagement);
+)(DoctorManagement);

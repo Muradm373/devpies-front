@@ -222,6 +222,38 @@ export const registerAdmin = (dispatch, username, password) => {
  
   };
 
+  export const editHospitalById = (dispatch, hospitalId, hospital) => {
+    let url = `${devpiesAPI}/admin/hospitals/${hospitalId}`;
+
+    axios.put(url, hospital, { headers: headers }).then((response) => {
+      let hospitalDTO = response.data;
+  
+      console.log(hospitalDTO);
+  
+      dispatch({
+        type: "EDIT_HOSPITAL_BY_ID",
+        data: hospital,
+      });
+    });
+ 
+  };
+
+  export const getHospitalById = (dispatch, hospitalId) => {
+    let url = `${devpiesAPI}/admin/hospitals/${hospitalId}`;
+
+    axios.get(url, { headers: headers }).then((response) => {
+      let hospitalDTO = response.data;
+  
+      console.log(hospitalDTO);
+  
+      dispatch({
+        type: "SET_HOSPITAL_BY_ID",
+        data: hospitalDTO,
+      });
+    });
+ 
+  };  
+
   export const getListOfUsersByPage = (dispatch, page) => {
     let url = `${devpiesAPI}/admin/users/page?page=${page}`;
 

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import {getListOfWeeklyAppointments} from "../../actions/DoctorActions"
+import {connect} from "react-redux"
 
 class TimeTable extends Component {
   constructor(props) {
@@ -9,6 +11,10 @@ class TimeTable extends Component {
       val: 0,
       dateTime: props.dateTime,
     };
+  }
+
+  componentWillReceiveProps(props){
+     this.parseAppointments(props.weeklyAppointments)
   }
   setTimeSlots() {
     let timeSlots = [];
@@ -24,7 +30,14 @@ class TimeTable extends Component {
     return timeSlots;
   }
 
-  colorSlot(timeSlot, week) {
+  parseAppointments(appointments){
+    
+    appointments.forEach(appointment => {
+       this.colorSlot(new Date(appointment.dateOfAppointment).getHours()-7, new Date(appointment.dateOfAppointment).getDay(), appointment)
+    });
+  }
+
+  colorSlot(timeSlot, week, appointment) {
     let timeTable = this.state.timeTable;
     timeTable[(timeSlot - 1) * 7 + week - 1] = (
       <div
@@ -32,7 +45,11 @@ class TimeTable extends Component {
         onClick={() => {
           this.colorSlot(timeSlot, week);
         }}
-      ></div>
+
+       
+      >
+         <p className="text-center mx-auto">{appointment.patient.username}</p>
+      </div>
     );
     this.setState({ val: this.state.val + 1 });
     console.log(this.props);
@@ -70,7 +87,7 @@ class TimeTable extends Component {
     let finalDate = date;
     finalDate.setDate(date.getDate() - weekDay + weekDaySelected);
 
-    return finalDate.toLocaleDateString();
+     return finalDate.toLocaleDateString();
   }
   render() {
     return (
@@ -78,27 +95,27 @@ class TimeTable extends Component {
         <div class="week-names">
           <div>
             monday <br />
-            {this.getDate(this.state.dateTime, 1)}
+            {this.getDate(this.props.dateTime, 1)}
           </div>
           <div>
             tuesday <br />
-            {this.getDate(this.state.dateTime, 2)}
+            {this.getDate(this.props.dateTime, 2)}
           </div>
           <div>
             wednesday <br />
-            {this.getDate(this.state.dateTime, 3)}
+            {this.getDate(this.props.dateTime, 3)}
           </div>
           <div>
             thursday <br />
-            {this.getDate(this.state.dateTime, 4)}
+            {this.getDate(this.props.dateTime, 4)}
           </div>
           <div>
             friday <br />
-            {this.getDate(this.state.dateTime, 5)}
+            {this.getDate(this.props.dateTime, 5)}
           </div>
           <div class="weekend">
             saturday <br />
-            {this.getDate(this.state.dateTime, 6)}
+            {this.getDate(this.props.dateTime, 6)}
           </div>
           <div class="weekend">
             sunday <br />
@@ -112,4 +129,21 @@ class TimeTable extends Component {
   }
 }
 
-export default TimeTable;
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getListOfWeeklyAppointments: (date) => {
+      getListOfWeeklyAppointments (dispatch, date);
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)( TimeTable );

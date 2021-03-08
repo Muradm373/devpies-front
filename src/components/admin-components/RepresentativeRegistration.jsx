@@ -10,6 +10,7 @@ import {
   Row,
   Col,
 } from "reactstrap";
+import {addRepresentative} from "../../actions/AdminActions"
 
 
 class RepresentativeRegistration extends Component {
@@ -43,7 +44,7 @@ class RepresentativeRegistration extends Component {
         "idNumber": this.state.idNumber,
         "birthDate": this.state.birthDate,
       })
-      this.props.editRepresentativeById(this.props.fetchedUser.id, representative)
+      this.props.addRepresentative(this.state.emailAddress, this.state.password, representative)
   }
 
 
@@ -219,7 +220,7 @@ class RepresentativeRegistration extends Component {
                           </a>
                         </Col>
                         <Col md="6">
-                          <a href="#" class="blog-slider__button w-50">
+                          <a href="#" class="blog-slider__button w-50" onClick={()=>this.saveRepresentative()}>
                             Save
                           </a>
                         </Col>
@@ -240,11 +241,11 @@ const mapStateToProps = (state) => {
   };
   
   const mapDispatchToProps = (dispatch) => {
-    // return {
-    //   addRepresentative: ( username, password, representative) => {
-    //     addRepresentative (dispatch, username, password, representative);
-    //   }
-    // };
+    return {
+      addRepresentative: ( username, password, representative) => {
+        addRepresentative (dispatch, username, password, representative);
+      }
+    };
   };
   
   export default connect(

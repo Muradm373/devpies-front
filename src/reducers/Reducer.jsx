@@ -101,7 +101,11 @@ const initState = {
   adminHasMoreRepresentatives: true,
   adminHasMoreHospitals: true,
 
-  fetchedUser: {}
+  dailyAppointments: [],
+  weeklyAppointments: [],
+
+  fetchedUser: {},
+  fetchedHospital:{}
 };
 
 const rootReducer = (state = initState, action) => {
@@ -147,9 +151,6 @@ const rootReducer = (state = initState, action) => {
   }
   if (action.type === "SET_LIST_OF_HOSPITALS") {
     return { ...state, hospitals: action.data };
-  }
-  if (action.type === "SET_HOSPITAL_BY_ID") {
-    return { ...state, usertype: action.usertype };
   }
   if (action.type === "SET_LIST_OF_DOCTORS_BY_HOSPITAL") {
     return { ...state, usertype: action.usertype };
@@ -268,13 +269,29 @@ const rootReducer = (state = initState, action) => {
       fetchedUser: action.data,
     };
   }
-
   if (action.type === "SET_HOSPITAL_BY_ID") {
+    console.log(action.data)
     return {
       ...state,
       fetchedHospital: action.data,
     };
   }
+
+    //Appointments
+    if (action.type === "GET_LIST_OF_DAILY_APPOINTMENTS") {
+      return {
+        ...state,
+        dailyAppointments: action.data,
+      };
+    }
+  
+    if (action.type === "GET_LIST_OF_WEEKLY_APPOINTMENTS") {
+      return {
+        ...state,
+        weeklyAppointments: action.data,
+      };
+    }
+  
 
   return { ...state };
 };

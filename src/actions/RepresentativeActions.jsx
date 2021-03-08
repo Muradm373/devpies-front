@@ -1,15 +1,11 @@
 import {devpiesAPI} from "./Actions";
 import axios from "axios";
-
-export const headers = {
-  "Content-Type": "application/json",
-};
-
+import {headers} from "./Actions"
 export const addHospital = (dispatch, hospital) => {
     let url = `${devpiesAPI}/representative/hospitals/`;
 
     axios
-    .post(url, { hospital: hospital }, { headers: headers })
+    .post(url, hospital , { headers: headers })
     .then((response) => {
       let hospitalDTO = response.data;
 
@@ -27,7 +23,7 @@ export const addHospital = (dispatch, hospital) => {
     let url = `${devpiesAPI}/representative/hospitals/${hospitalId}?username=${username}&password=${password}`;
 
     axios
-    .post(url, { doctor: doctor }, { headers: headers })
+    .post(url,  doctor, { headers: headers })
     .then((response) => {
       let doctorDTO = response.data;
 
@@ -58,6 +54,8 @@ export const addHospital = (dispatch, hospital) => {
  
   };
 
+
+
   export const getHospitalById = (dispatch, hospitalId) => {
     let url = `${devpiesAPI}/representative/hospitals/${hospitalId}`;
 
@@ -69,7 +67,7 @@ export const addHospital = (dispatch, hospital) => {
       console.log(hospital);
 
       dispatch({
-        type: "GET_REPRESENTATIVE_HOSPITAL_BY_ID",
+        type: "SET_HOSPITAL_BY_ID",
         data: hospital,
       });
     });
@@ -193,3 +191,64 @@ export const addHospital = (dispatch, hospital) => {
     });
  
   };
+
+  export const getListOfHospitalsByPage = (dispatch, page) => {
+    let url = `${devpiesAPI}/representative/hospitals/page?page=${page}`;
+
+    axios.get(url, { headers: headers }).then((response) => {
+      let hospitals = response.data;
+  
+      console.log(hospitals);
+  
+      dispatch({
+        type: "SET_LIST_OF_HOSPITALS_BY_PAGE",
+        data: hospitals,
+      });
+    });
+ 
+  };
+
+  export const resetListOfHospitals = (dispatch) => {
+    dispatch({
+      type: "RESET_LIST_OF_HOSPITALS_BY_PAGE"
+    });
+  }
+  
+  export const editHospitalById = (dispatch, hospitalId, hospital) => {
+    let url = `${devpiesAPI}/representative/hospitals/${hospitalId}`;
+
+    axios.put(url, hospital, { headers: headers }).then((response) => {
+      let hospitalDTO = response.data;
+  
+      console.log(hospitalDTO);
+  
+      dispatch({
+        type: "EDIT_HOSPITAL_BY_ID",
+        data: hospital,
+      });
+    });
+ 
+  };
+
+  export const getListOfDoctorsByPage = (dispatch, page) => {
+    let url = `${devpiesAPI}/representative/doctors/page?page=${page}`;
+
+    axios.get(url, { headers: headers }).then((response) => {
+      let doctors = response.data;
+  
+      console.log(doctors);
+  
+      dispatch({
+        type: "SET_LIST_OF_DOCTORS_BY_PAGE",
+        data: doctors,
+      });
+    });
+ 
+ 
+  };
+
+  export const resetListOfDoctors = (dispatch) => {
+    dispatch({
+      type: "RESET_LIST_OF_DOCTORS_BY_PAGE"
+    });
+  }

@@ -47,6 +47,43 @@ export const getListOfAppointmentsByStatus = (dispatch, status) => {
   });
 };
 
+export const getListOfWeeklyAppointments = (dispatch, date) => {
+  let url = `${devpiesAPI}/doctor/appointments/date?start=${date}`;
+
+  axios
+  .get(url, { headers: headers })
+  .then((response) => {
+    let appointments = response.data;
+
+    console.log(appointments);
+
+    dispatch({
+      type: "GET_LIST_OF_WEEKLY_APPOINTMENTS",
+      data: appointments,
+    });
+  });
+
+};
+
+export const getListOfDailyAppointments = (dispatch) => {
+  let url = `${devpiesAPI}/doctor/appointments/today`;
+
+  axios
+  .get(url, { headers: headers })
+  .then((response) => {
+    let appointments = response.data;
+
+    console.log(appointments);
+
+    dispatch({
+      type: "GET_LIST_OF_DAILY_APPOINTMENTS",
+      data: appointments,
+    });
+  });
+
+};
+
+
 export const getAppointmentById = (dispatch, id) => {
   let url = `${devpiesAPI}/doctor/appointments/${id}`;
 
