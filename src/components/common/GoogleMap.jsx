@@ -21,11 +21,15 @@ class GoogleMap extends Component {
     };
   }
   parseTime(time){
-    let timeArr = JSON.stringify(time).split("T");
-    let unformatted = timeArr[1];
-    let unformattedSplit = unformatted.split(":");
+    if(time !== undefined){
+      let timeArr = JSON.stringify(time).split("T");
+      let unformatted = timeArr[1];
+      let unformattedSplit = unformatted.split(":");
 
-    return(`${unformattedSplit[0]}:${unformattedSplit[1]}`)
+      return(`${unformattedSplit[0]}:${unformattedSplit[1]}`)
+    }
+    return undefined
+
   }
 
 

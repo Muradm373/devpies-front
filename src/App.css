@@ -485,6 +485,13 @@
   height: 85vh;
 }
 
+.color-white {
+  color: #FFFFFF !important;
+}
+
+.content-small {
+  min-height: 0 !important;
+}
 
 .search-white{
   color: #fff !important

@@ -113,7 +113,7 @@ export const createAppointment = (dispatch, appointment) => {
   let url = `${devpiesAPI}/patient/appointments`;
 
   axios
-    .post(url, { appointment: appointment }, { headers: headers })
+    .post(url, appointment, { headers: headers })
     .then((response) => {
       let appointmentDTO = response.data;
 
@@ -228,3 +228,46 @@ export const changeDetailsOfAppointmentById = (
       });
     });
 };
+
+export const resetListOfDoctors = (dispatch) => {
+  dispatch({
+    type: "RESET_LIST_OF_DOCTORS_BY_PAGE"
+  });
+}
+
+export const getListOfDoctorsByPage = (dispatch, page, hospitalId) => {
+  let url = `${devpiesAPI}/patient/hospitals/doctors/page?id=${hospitalId}&page=${page}`;
+
+  axios.get(url, { headers: headers }).then((response) => {
+    let doctors = response.data;
+
+    console.log(doctors);
+
+    dispatch({
+      type: "SET_LIST_OF_DOCTORS_BY_PAGE",
+      data: doctors,
+    });
+  });
+}
+
+export const getListOfHospitalsByPage = (dispatch, page) => {
+  let url = `${devpiesAPI}/patient/hospitals/page?page=${page}`;
+
+  axios.get(url, { headers: headers }).then((response) => {
+    let hospitals = response.data;
+
+    console.log(hospitals);
+
+    dispatch({
+      type: "SET_LIST_OF_HOSPITALS_BY_PAGE",
+      data: hospitals,
+    });
+  });
+
+};
+
+export const resetListOfHospitals = (dispatch) => {
+  dispatch({
+    type: "RESET_LIST_OF_HOSPITALS_BY_PAGE"
+  });
+}
