@@ -4,7 +4,7 @@ export const headers = {
   "Content-Type": "application/json",
 };
 //export const devpiesAPI = "https://devpies-back.herokuapp.com";
-export const devpiesAPI = "http://localhost:9090";
+export const devpiesAPI = "https://main.d3wqtrnje3rwp.amplifyapp.com";
 
 export const setMenu = (menu) => {
   console.log(menu);
